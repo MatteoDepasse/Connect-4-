@@ -4,15 +4,16 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 import java.awt.event.*;
-//made by matteo and kevin 
-public class Connect {
-	//properties
+// Made by Matteo and Kevin 
 
-	//methods
+public class Connect{
+	// Properties
 
-	//constructor
+	// Methods
 
-	// main 
+	// Constructor
+
+	// Main Method
 
 
 
