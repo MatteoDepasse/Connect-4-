@@ -12,8 +12,9 @@ public class Connect{
 	// Methods
 
 	// Constructor
-
-}
+	public Connect(){
+		
+	}
 	// Main Method
 public static void main (String[] args){
 	new Connect();
