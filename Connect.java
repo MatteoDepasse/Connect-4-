@@ -17,17 +17,19 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JButton but5;
 	JButton but6;
 	Timer thetimer; 
-	//JLabel thelabel; 
+	JLabel thelabel; 
 	String strHow = ""; 
 
 	// Methods
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource()== but4){
 			thepanel.blnClear = true; 
-			thepanel.add(new JLabel("Button"));
-			//theframe.revalidate();
-			thepanel.validate();
-			thepanel.repaint(); 
+			thelabel.setText("here"); 
+			//
+			//thepanel.add(new JLabel("Button"));
+			//**theframe.revalidate();
+			//thepanel.validate();
+			//thepanel.repaint(); 
 
 
 			//System.out.println("Once you click play the game will ask you if you want to be a client or host");
@@ -62,9 +64,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		but5.addActionListener(this);
 		thetimer = new Timer(1000/60, this);
 		thetimer.start(); 
-		//thelabel = new JLabel("test");
-		//thelabel.setSize(100,100);
-		//thelabel.setLocation(100,100);
+		thelabel = new JLabel("");
+		thelabel.setSize(100,100);
+		thelabel.setLocation(300,300);
 
 
 		but1.setSize(100,50); 
@@ -83,7 +85,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thepanel.add(but3);
 		thepanel.add(but4);
 		thepanel.add(but5);
-		//thepanel.add(thelabel);
+		thepanel.add(thelabel);
 
 		
 		theframe.setContentPane(thepanel);
