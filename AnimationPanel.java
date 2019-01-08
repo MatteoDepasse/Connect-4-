@@ -7,9 +7,10 @@ import javax.imageio.*;
 public class AnimationPanel extends JPanel{
 
 	// Properties
-	
+	boolean blnClear = false;
 	
 	// Methods
+	
 	public void paintComponent(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1280, 720);
@@ -58,6 +59,12 @@ public class AnimationPanel extends JPanel{
 		g.fillOval(1140, 405, 75, 75);
 		g.fillOval(1140, 500, 75, 75);
 		g.fillOval(1140, 595, 75, 75);
+		if(blnClear){
+		removeAll();
+		//or remove(JComponent)
+		revalidate();
+		repaint();
+	}
 	}
 	
 	// Constructor

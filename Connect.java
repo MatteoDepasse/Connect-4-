@@ -16,14 +16,26 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JButton but4;
 	JButton but5;
 	JButton but6;
-	JLabel thelabel; 
+	Timer thetimer; 
+	//JLabel thelabel; 
 	String strHow = ""; 
 
 	// Methods
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource()== but4){
-			 strHow = "test";
-			 
+			thepanel.blnClear = true; 
+			thepanel.add(new JLabel("Button"));
+			//theframe.revalidate();
+			thepanel.validate();
+			thepanel.repaint(); 
+
+
+			//System.out.println("Once you click play the game will ask you if you want to be a client or host");
+		//	System.out.println("Choose client or host");
+		//	System.out.println("the host has to provides the port number and the ip address");
+		}
+		if(evt.getSource()==thetimer){
+			thepanel.repaint();
 		}
 	}
 	public void mouseDragged(MouseEvent evt){
@@ -48,9 +60,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 		but3.addActionListener(this);
 		but4.addActionListener(this);
 		but5.addActionListener(this);
-		thelabel = new JLabel(strHow);
-		thelabel.setSize(100,100);
-		thelabel.setLocation(400,400);
+		thetimer = new Timer(1000/60, this);
+		thetimer.start(); 
+		//thelabel = new JLabel("test");
+		//thelabel.setSize(100,100);
+		//thelabel.setLocation(100,100);
 
 
 		but1.setSize(100,50); 
@@ -69,7 +83,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thepanel.add(but3);
 		thepanel.add(but4);
 		thepanel.add(but5);
-		thepanel.add(thelabel);
+		//thepanel.add(thelabel);
+
 		
 		theframe.setContentPane(thepanel);
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
