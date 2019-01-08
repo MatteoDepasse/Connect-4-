@@ -24,6 +24,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource()== but4){
 			thepanel.blnClear = true; 
+			//thepanel.add(thelabel);
 			thelabel.setText("here"); 
 			//
 			//thepanel.add(new JLabel("Button"));
