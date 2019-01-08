@@ -46,6 +46,18 @@ public class AnimationPanel extends JPanel{
 		g.fillOval(950, 405, 75, 75);
 		g.fillOval(950, 500, 75, 75);
 		g.fillOval(950, 595, 75, 75);
+		g.fillOval(1045, 120, 75, 75);
+		g.fillOval(1045, 215, 75, 75);
+		g.fillOval(1045, 310, 75, 75);
+		g.fillOval(1045, 405, 75, 75);
+		g.fillOval(1045, 500, 75, 75);
+		g.fillOval(1045, 595, 75, 75);
+		g.fillOval(1140, 120, 75, 75);
+		g.fillOval(1140, 215, 75, 75);
+		g.fillOval(1140, 310, 75, 75);
+		g.fillOval(1140, 405, 75, 75);
+		g.fillOval(1140, 500, 75, 75);
+		g.fillOval(1140, 595, 75, 75);
 	}
 	
 	// Constructor
