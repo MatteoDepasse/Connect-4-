@@ -13,6 +13,7 @@ public class AnimationPanel extends JPanel{
 	
 	public void paintComponent(Graphics g){
 		tools.board(g);
+
 		
 		if(blnClear){
 			removeAll();
