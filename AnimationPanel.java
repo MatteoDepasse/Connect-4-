@@ -11,7 +11,7 @@ public class AnimationPanel extends JPanel{
 
 	// Methods
 	public void paintComponent(Graphics g){
-		tools.board(g);
+		tools.plainboard(g);
 
 	}
 	

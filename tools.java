@@ -52,6 +52,7 @@ public class tools{
 		g.fillOval(1140, 500, 75, 75);
 		g.fillOval(1140, 595, 75, 75);
 	}
+	
 	public static void plainboard(Graphics g){
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1280, 720);
