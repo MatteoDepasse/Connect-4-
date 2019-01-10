@@ -7,19 +7,12 @@ import javax.imageio.*;
 public class AnimationPanel extends JPanel{
 
 	// Properties
-	boolean blnClear = false;
-	boolean blnPanel = true; 
 	
+
 	// Methods
-	
 	public void paintComponent(Graphics g){
 		tools.board(g);
 
-		if(blnClear){
-			removeAll();
-			revalidate();
-			repaint();
-		}
 	}
 	
 	// Constructor
