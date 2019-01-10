@@ -6,6 +6,7 @@ import javax.imageio.*;
 import java.awt.event.*;
 // Made by Matteo and Kevin 
 
+
 public class Connect implements ActionListener, MouseMotionListener{
 	// Properties
 	
@@ -24,7 +25,6 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JButton butBACK;
 	JRadioButton client;
 	JRadioButton host;
-
 	Timer thetimer; 
 	JLabel thelabel; 
 	JLabel thelabel2; 
@@ -32,13 +32,10 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JLabel thelabel4; 
 	JLabel thelabel5; 
 
-
-	String strHow = ""; 
-
 	// Methods
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource()== butPLAY){
-			theframe.setContentPane(playpanel);
+			theframe.setContentPane(netpanel);
 
 		}
 		if(evt.getSource()== butHOWTO){
@@ -79,9 +76,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		helppanel.setLayout(null);
 		helppanel.setPreferredSize(new Dimension(1280,720));
 		
-		playpanel = new AnimationPanel4();
-		playpanel.setLayout(null);
-		playpanel.setPreferredSize(new Dimension(1280,720));
+		netpanel = new AnimationPanel3();
+		netpanel.setLayout(null);
+		netpanel.setPreferredSize(new Dimension(1280,720));
 		
 		client = new JRadioButton("client");
 		client.addActionListener(this);
@@ -156,8 +153,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		helppanel.add(thelabel5);
 		helppanel.add(butBACK);
 		
-		playpanel.add(host);
-		playpanel.add(client); 
+		netpanel.add(host);
+		netpanel.add(client); 
+		netpanel.add(butBACK); 
 
 		
 		theframe.setContentPane(mainpanel);
