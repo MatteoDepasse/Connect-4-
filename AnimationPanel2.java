@@ -14,6 +14,7 @@ public class AnimationPanel2 extends JPanel{
 	
 	// Methods
 	public void paintComponent(Graphics g){
+		tools.plainboard(g);
 		
 		g.drawImage(imgwinup, 100, 400, null);
 		g.drawImage(imgwinright, 400, 400, null);

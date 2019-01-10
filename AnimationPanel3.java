@@ -8,9 +8,10 @@ public class AnimationPanel3 extends JPanel{
 
 	// Properties
 	
-	// Methods
 	
+	// Methods
 	public void paintComponent(Graphics g){
+		tools.plainboard(g);
 		
 	}
 	
