@@ -15,10 +15,10 @@ public class AnimationPanel2 extends JPanel{
 	// Methods
 	public void paintComponent(Graphics g){
 		
-		g.drawImage(imgwinup, 100, 300, null);
-		g.drawImage(imgwinright, 100, 550, null);
-		g.drawImage(imgwindiag, 100, 800, null);
-		g.drawImage(imgwindiag2, 100, 1050, null);
+		g.drawImage(imgwinup, 300, 400, null);
+		g.drawImage(imgwinright, 550, 400, null);
+		g.drawImage(imgwindiag, 800, 400, null);
+		g.drawImage(imgwindiag2, 1050, 400, null);
 		
 	}
 	
