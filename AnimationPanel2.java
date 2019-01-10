@@ -8,8 +8,8 @@ public class AnimationPanel2 extends JPanel{
 
 	// Properties
 	
-	// Methods
 	
+	// Methods
 	public void paintComponent(Graphics g){
 		
 	}
