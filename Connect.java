@@ -45,6 +45,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		if(evt.getSource()== butPLAY){
 			theframe.setContentPane(netpanel);
 		}
+		if(evt.getSource()== butSCORE){
+			theframe.setContentPane(highpanel);
+		}
 		if(evt.getSource()== butBACK){
 			theframe.setContentPane(mainpanel);
 		}
@@ -80,6 +83,10 @@ public class Connect implements ActionListener, MouseMotionListener{
 		playpanel = new AnimationPanel4();
 		playpanel.setLayout(null);
 		playpanel.setPreferredSize(new Dimension(1280,720));
+		
+		highpanel = new AnimationPanel5();
+		highpanel.setLayout(null);
+		highpanel.setPreferredSize(new Dimension(1280,720));
 		
 		client = new JRadioButton("client");
 		client.addActionListener(this);
