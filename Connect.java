@@ -9,21 +9,22 @@ import java.awt.event.*;
 public class Connect implements ActionListener, MouseMotionListener{
 	// Properties
 	
-	//need a :
-	// An network panel
-	//play panel
-	//themes panel
-	//highscore panel
-	//
 	JFrame theframe;
 	AnimationPanel mainpanel;
-	AnimationPanel2 helppanel; 
+	AnimationPanel2 helppanel;
+	AnimationPanel3 netpanel;
+	AnimationPanel4 playpanel;
+	AnimationPanel5 highpanel; 
+	AnimationPanel6 themepanel;
 	JButton butPLAY; 
 	JButton butSCORE;
 	JButton butTHEME;
 	JButton butHOWTO;
 	JButton butEXIT;
 	JButton butBACK;
+	JRadioButton client;
+	JRadioButton host;
+
 	Timer thetimer; 
 	JLabel thelabel; 
 	JLabel thelabel2; 
@@ -36,6 +37,10 @@ public class Connect implements ActionListener, MouseMotionListener{
 
 	// Methods
 	public void actionPerformed(ActionEvent evt){
+		if(evt.getSource()== butPLAY){
+			theframe.setContentPane(playpanel);
+
+		}
 		if(evt.getSource()== butHOWTO){
 			theframe.setContentPane(helppanel);
 			
@@ -44,17 +49,17 @@ public class Connect implements ActionListener, MouseMotionListener{
 			thelabel3.setText("While playing the turns alternate between red and yellow team"); 
 			thelabel4.setText("Drag and drop your pieces to drop them down a column");
 			thelabel5.setText("Line 4 pieces of your colour to win the game!!");
-
-			//
-			//System.out.println("Once you click play the game will ask you if you want to be a client or host");
-		//	System.out.println("Choose client or host");
-		//	System.out.println("the host has to provides the port number and the ip address");
 		}
 		if(evt.getSource()== butBACK){
 			theframe.setContentPane(mainpanel);
 		}
+		if(evt.getSource()== butEXIT){
+			theframe.dispatchEvent(new WindowEvent(theframe, WindowEvent.WINDOW_CLOSING));
+
+		}
 		if(evt.getSource()==thetimer){
 			mainpanel.repaint();
+			//need to repaint the other panels 
 		}
 	}
 	public void mouseDragged(MouseEvent evt){
@@ -73,6 +78,20 @@ public class Connect implements ActionListener, MouseMotionListener{
 		helppanel = new AnimationPanel2();
 		helppanel.setLayout(null);
 		helppanel.setPreferredSize(new Dimension(1280,720));
+		
+		playpanel = new AnimationPanel4();
+		playpanel.setLayout(null);
+		playpanel.setPreferredSize(new Dimension(1280,720));
+		
+		client = new JRadioButton("client");
+		client.addActionListener(this);
+		client.setSize(100,100);
+		client.setLocation(0,0); 
+		
+		host = new JRadioButton("host");
+		host.addActionListener(this);
+		host.setSize(100,100);
+		host.setLocation(100,0); 
 		
 		butPLAY = new JButton("PLAY");
 		butSCORE = new JButton("HIGH SCORE");
@@ -136,6 +155,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		helppanel.add(thelabel4);
 		helppanel.add(thelabel5);
 		helppanel.add(butBACK);
+		
+		playpanel.add(host);
+		playpanel.add(client); 
 
 		
 		theframe.setContentPane(mainpanel);
