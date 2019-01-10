@@ -6,8 +6,6 @@ import javax.imageio.*;
 
 public class tools{
 	public static void board(Graphics g){
-		g.setColor(Color.WHITE);
-		g.fillRect(0, 0, 1280, 720);
 		g.setColor(Color.BLUE);
 		g.fillRect(550, 100, 685, 584);	
 		g.setColor(Color.WHITE);
