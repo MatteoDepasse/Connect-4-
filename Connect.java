@@ -64,12 +64,14 @@ public class Connect implements ActionListener, MouseMotionListener{
 			themepanel.revalidate();
 		}
 	}
+	
 	public void mouseDragged(MouseEvent evt){
 		
 	}
 	public void mouseMoved(MouseEvent evt){
 		
 	} 
+	
 	// Constructor
 	public Connect(){
 		theframe = new JFrame("Connect 4");
