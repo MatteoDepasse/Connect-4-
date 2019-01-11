@@ -12,7 +12,7 @@ public class AnimationPanel6 extends JPanel{
 	// Methods
 	public void paintComponent(Graphics g){
 		tools.plainboard(g);
-		
+		revalidate(); 
 	}
 	
 	// Constructor

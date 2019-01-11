@@ -48,6 +48,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		if(evt.getSource()== butSCORE){
 			theframe.setContentPane(highpanel);
 		}
+		if(evt.getSource()== butTHEME){
+			theframe.setContentPane(themepanel);
+		}
 		if(evt.getSource()== butBACK){
 			theframe.setContentPane(mainpanel);
 		}
@@ -56,7 +59,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		}
 		if(evt.getSource()== thetimer){
 			mainpanel.repaint();
-			netpanel.repaint();
+			netpanel.revalidate();
+			highpanel.revalidate();
+			themepanel.revalidate();
 		}
 	}
 	public void mouseDragged(MouseEvent evt){
@@ -88,15 +93,19 @@ public class Connect implements ActionListener, MouseMotionListener{
 		highpanel.setLayout(null);
 		highpanel.setPreferredSize(new Dimension(1280,720));
 		
+		themepanel = new AnimationPanel6();
+		themepanel.setLayout(null);
+		themepanel.setPreferredSize(new Dimension(1280,720));
+		
 		client = new JRadioButton("client");
 		client.addActionListener(this);
 		client.setSize(100,100);
-		client.setLocation(0,100); 
+		client.setLocation(600,100); 
 		
 		host = new JRadioButton("host");
 		host.addActionListener(this);
 		host.setSize(100,100);
-		host.setLocation(100,100); 
+		host.setLocation(700,100); 
 		
 		butPLAY = new JButton("PLAY");
 		butSCORE = new JButton("HIGH SCORE");
