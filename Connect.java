@@ -23,6 +23,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JButton butHOWTO;
 	JButton butEXIT;
 	JButton butBACK;
+	JButton butBACK2;
+	JButton butBACK3;
+	JButton butBACK4;
 	JRadioButton client;
 	JRadioButton host;
 	Timer thetimer; 
@@ -31,6 +34,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JLabel thelabel3; 
 	JLabel thelabel4; 
 	JLabel thelabel5; 
+	JLabel thelabel6;
 
 	// Methods
 	public void actionPerformed(ActionEvent evt){
@@ -50,8 +54,18 @@ public class Connect implements ActionListener, MouseMotionListener{
 		}
 		if(evt.getSource()== butTHEME){
 			theframe.setContentPane(themepanel);
+			thelabel6.setText("Select a Theme");
 		}
 		if(evt.getSource()== butBACK){
+			theframe.setContentPane(mainpanel);
+		}
+		if(evt.getSource()== butBACK2){
+			theframe.setContentPane(mainpanel);
+		}
+		if(evt.getSource()== butBACK3){
+			theframe.setContentPane(mainpanel);
+		}
+		if(evt.getSource()== butBACK4){
 			theframe.setContentPane(mainpanel);
 		}
 		if(evt.getSource()== butEXIT){
@@ -102,12 +116,12 @@ public class Connect implements ActionListener, MouseMotionListener{
 		client = new JRadioButton("client");
 		client.addActionListener(this);
 		client.setSize(100,100);
-		client.setLocation(600,100); 
+		client.setLocation(550,100); 
 		
 		host = new JRadioButton("host");
 		host.addActionListener(this);
 		host.setSize(100,100);
-		host.setLocation(700,100); 
+		host.setLocation(650,100); 
 		
 		butPLAY = new JButton("PLAY");
 		butSCORE = new JButton("HIGH SCORE");
@@ -115,48 +129,73 @@ public class Connect implements ActionListener, MouseMotionListener{
 		butHOWTO = new JButton("HOW TO PLAY");
 		butEXIT = new JButton("EXIT");
 		butBACK = new JButton("BACK");
+		butBACK2 = new JButton("BACK");
+		butBACK3 = new JButton("BACK");
+		butBACK4 = new JButton("BACK");
 		butPLAY.addActionListener(this);
 		butSCORE.addActionListener(this);
 		butTHEME.addActionListener(this);
 		butHOWTO.addActionListener(this);
 		butEXIT.addActionListener(this);
 		butBACK.addActionListener(this);
+		butBACK2.addActionListener(this);
+		butBACK3.addActionListener(this);
+		butBACK4.addActionListener(this);
+		
 		thetimer = new Timer(1000/60, this);
 		thetimer.start();
 		 
 		thelabel = new JLabel("");
 		thelabel.setSize(1000,50);
-		thelabel.setLocation(0,0);
+		thelabel.setLocation(100,0);
 		
 		thelabel2 = new JLabel("");
 		thelabel2.setSize(1000,50);
-		thelabel2.setLocation(0,50);
+		thelabel2.setLocation(100,50);
 		
 		thelabel3 = new JLabel("");
 		thelabel3.setSize(1000,50);
-		thelabel3.setLocation(0,100);
+		thelabel3.setLocation(100,100);
 		
 		thelabel4 = new JLabel("");
 		thelabel4.setSize(1000,50);
-		thelabel4.setLocation(0,150);
+		thelabel4.setLocation(100,150);
 		
 		thelabel5 = new JLabel("");
 		thelabel5.setSize(1000,50);
-		thelabel5.setLocation(0,200);
+		thelabel5.setLocation(100,200);
+		
+		thelabel6 = new JLabel("");
+		thelabel6.setSize(1000,50);
+		thelabel6.setLocation(600,100);
 
 		butPLAY.setSize(100,50); 
-		butPLAY.setLocation(0,0);
+		butPLAY.setLocation(200,100);
+		
 		butSCORE.setSize(100,50); 
-		butSCORE.setLocation(0,50);
+		butSCORE.setLocation(200,200);
+		
 		butTHEME.setSize(100,50); 
-		butTHEME.setLocation(0,100);
+		butTHEME.setLocation(200,300);
+		
 		butHOWTO.setSize(100,50); 
-		butHOWTO.setLocation(0,150);
+		butHOWTO.setLocation(200,400);
+		
 		butEXIT.setSize(100,50); 
-		butEXIT.setLocation(0,200);
+		butEXIT.setLocation(200,500);
+		
 		butBACK.setSize(100,50); 
 		butBACK.setLocation(20,650);
 		
+		butBACK2.setSize(100,50);
+		butBACK2.setLocation(20,650);
+		
+		butBACK3.setSize(100,50);
+		butBACK3.setLocation(20,650);
+		
+		butBACK4.setSize(100,50);
+		butBACK4.setLocation(20,650);
+
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
 		mainpanel.add(butTHEME);
@@ -172,7 +211,13 @@ public class Connect implements ActionListener, MouseMotionListener{
 		helppanel.add(butBACK);
 		
 		netpanel.add(host);
-		netpanel.add(client); 
+		netpanel.add(client);
+		netpanel.add(butBACK3);
+		
+		themepanel.add(thelabel6);
+		themepanel.add(butBACK2);
+		
+		highpanel.add(butBACK4);
 		
 		theframe.setContentPane(mainpanel);
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
