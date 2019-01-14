@@ -26,6 +26,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JButton butBACK2;
 	JButton butBACK3;
 	JButton butBACK4;
+	JButton butBACK5;
+	JButton buttheme1;
+	JButton buttheme2;
+	JButton buttheme3;
+	JButton butNEXT;
 	JRadioButton client;
 	JRadioButton host;
 	Timer thetimer; 
@@ -35,6 +40,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JLabel thelabel4; 
 	JLabel thelabel5; 
 	JLabel thelabel6;
+	SuperSocketMaster ssm;
 
 	// Methods
 	public void actionPerformed(ActionEvent evt){
@@ -56,6 +62,25 @@ public class Connect implements ActionListener, MouseMotionListener{
 			theframe.setContentPane(themepanel);
 			thelabel6.setText("Select a Theme");
 		}
+		if(evt.getSource()== buttheme1){
+			buttheme1.setEnabled(false);
+			buttheme2.setEnabled(true);
+			buttheme3.setEnabled(true);
+			tools.pieces(1);
+		}
+		if(evt.getSource()== buttheme2){
+			buttheme2.setEnabled(false);
+			buttheme1.setEnabled(true);
+			buttheme3.setEnabled(true);
+			tools.pieces(2);
+		}
+		if(evt.getSource()== buttheme3){
+			buttheme3.setEnabled(false);
+			buttheme1.setEnabled(true);
+			buttheme2.setEnabled(true);
+			tools.pieces(3);
+			
+		}
 		if(evt.getSource()== butBACK){
 			theframe.setContentPane(mainpanel);
 		}
@@ -68,14 +93,35 @@ public class Connect implements ActionListener, MouseMotionListener{
 		if(evt.getSource()== butBACK4){
 			theframe.setContentPane(mainpanel);
 		}
+		if(evt.getSource()== butBACK5){
+			theframe.setContentPane(netpanel);
+			System.out.println("test");
+		}
+		if(evt.getSource()== butNEXT){
+			theframe.setContentPane(playpanel);
+		}
 		if(evt.getSource()== butEXIT){
 			theframe.dispatchEvent(new WindowEvent(theframe, WindowEvent.WINDOW_CLOSING));
+		}
+		if(evt.getSource() == client){
+			if(client.isSelected()){
+				host.setSelected(false);
+			}else{
+				host.setSelected(true);
+			}
+		}else if(evt.getSource() == host){
+			if(host.isSelected()){
+				client.setSelected(false);
+			}else{
+				client.setSelected(true);
+			}
 		}
 		if(evt.getSource()== thetimer){
 			mainpanel.repaint();
 			netpanel.revalidate();
 			highpanel.revalidate();
 			themepanel.revalidate();
+			playpanel.revalidate();
 		}
 	}
 	
@@ -113,12 +159,13 @@ public class Connect implements ActionListener, MouseMotionListener{
 		themepanel.setLayout(null);
 		themepanel.setPreferredSize(new Dimension(1280,720));
 		
-		client = new JRadioButton("client");
+		client = new JRadioButton("Client");
 		client.addActionListener(this);
 		client.setSize(100,100);
 		client.setLocation(550,100); 
+		client.setEnabled(true);
 		
-		host = new JRadioButton("host");
+		host = new JRadioButton("Host");
 		host.addActionListener(this);
 		host.setSize(100,100);
 		host.setLocation(650,100); 
@@ -132,6 +179,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 		butBACK2 = new JButton("BACK");
 		butBACK3 = new JButton("BACK");
 		butBACK4 = new JButton("BACK");
+		butBACK5 = new JButton("BACK");
+		buttheme1 = new JButton("CLASSIC");
+		buttheme2 = new JButton("SPACE");
+		buttheme3 = new JButton("INDUSTRIAL");
+		butNEXT = new JButton("NEXT");
 		butPLAY.addActionListener(this);
 		butSCORE.addActionListener(this);
 		butTHEME.addActionListener(this);
@@ -141,6 +193,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 		butBACK2.addActionListener(this);
 		butBACK3.addActionListener(this);
 		butBACK4.addActionListener(this);
+		butBACK5.addActionListener(this);
+		buttheme1.addActionListener(this);
+		buttheme2.addActionListener(this);
+		buttheme3.addActionListener(this);
+		butNEXT.addActionListener(this);
 		
 		thetimer = new Timer(1000/60, this);
 		thetimer.start();
@@ -195,6 +252,21 @@ public class Connect implements ActionListener, MouseMotionListener{
 		
 		butBACK4.setSize(100,50);
 		butBACK4.setLocation(20,650);
+		
+		butBACK5.setSize(100,50);
+		butBACK5.setLocation(20,650);
+		
+		buttheme1.setSize(100,50);
+		buttheme1.setLocation(600,200);
+		
+		buttheme2.setSize(100,50);
+		buttheme2.setLocation(600,300);
+		
+		buttheme3.setSize(100,50);
+		buttheme3.setLocation(600,400);
+		
+		butNEXT.setSize(100,50);
+		butNEXT.setLocation(1160,650);
 
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
@@ -213,11 +285,17 @@ public class Connect implements ActionListener, MouseMotionListener{
 		netpanel.add(host);
 		netpanel.add(client);
 		netpanel.add(butBACK3);
+		netpanel.add(butNEXT);
 		
 		themepanel.add(thelabel6);
 		themepanel.add(butBACK2);
+		themepanel.add(buttheme1);
+		themepanel.add(buttheme2);
+		themepanel.add(buttheme3);
 		
 		highpanel.add(butBACK4);
+		
+		playpanel.add(butBACK5);
 		
 		theframe.setContentPane(mainpanel);
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

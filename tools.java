@@ -57,4 +57,46 @@ public class tools{
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1280, 720);
 	}
+	
+	public static String[][] pieces(int intTheme){
+		
+		boolean blnFileFail = false;
+		FileReader themefile = null;
+		BufferedReader thefiledata = null;
+		String strPiece [][];
+		strPiece = new String[3][6];
+		
+		try{
+			themefile = new FileReader("themes.txt");
+		}catch(FileNotFoundException e){
+			System.out.println("Unable to read from the file...");
+			blnFileFail = true;
+		}
+		if(blnFileFail == false){
+			thefiledata = new BufferedReader(themefile);
+			String strLine = "";
+
+			try{
+				strLine = thefiledata.readLine();
+			}catch(IOException e){
+				strLine = "";
+			}
+			
+			if(intTheme == 1){
+				try{
+					strPiece[0][0] = thefiledata.readLine();
+					strPiece[0][1] = thefiledata.readLine();
+					strPiece[1][2] = thefiledata.readLine();
+					strPiece[1][3] = thefiledata.readLine();
+					strPiece[2][4] = thefiledata.readLine();
+					strPiece[2][5] = thefiledata.readLine();
+				}catch(IOException e){
+					strPiece[2][5] = "";
+				}
+			}
+					
+		}
+		return strPiece;
+	}
+	
 }
