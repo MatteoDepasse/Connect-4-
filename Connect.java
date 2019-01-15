@@ -105,9 +105,6 @@ public class Connect implements ActionListener, MouseMotionListener{
 			theframe.setContentPane(netpanel);
 			System.out.println("test");
 		}
-		if(evt.getSource()== butNEXT){
-			theframe.setContentPane(playpanel);
-		}
 		if(evt.getSource()== butEXIT){
 			theframe.dispatchEvent(new WindowEvent(theframe, WindowEvent.WINDOW_CLOSING));
 		}
@@ -140,6 +137,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 		}
 		if(evt.getSource()== thefield){
 			String strIP = thefield.getText();
+		}
+		if(evt.getSource()== butNEXT){
+			theframe.setContentPane(playpanel);
+			ssmc = new SuperSocketMaster(strIP, 1337, this);
+			ssmc.connect();
 		}
 		if(evt.getSource() == thefield2){
 			ssm.sendText(thefield2.getText());
@@ -326,8 +328,6 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thescroll = new JScrollPane(thechat);
 	
 		ssm = new SuperSocketMaster(1337, this);
-		ssmc = new SuperSocketMaster(strIP, 1337, this);
-		ssmc.connect();
 
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
