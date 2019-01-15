@@ -328,6 +328,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thescroll = new JScrollPane(thechat);
 	
 		ssm = new SuperSocketMaster(1337, this);
+		ssm.connect();
 
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
