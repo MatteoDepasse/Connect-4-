@@ -311,6 +311,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thefield = new JTextField();
 		thefield.setSize(200,50);
 		thefield.setLocation(550,200);
+		thefield.addActionListener(this);
 
 		thefield2 = new JTextField();
 		thefield2.setSize(200,100);
