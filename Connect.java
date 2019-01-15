@@ -121,6 +121,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel8.setVisible(true);
 				thelabel8.setText("IP: " +ssm.getMyAddress());
 			}
+			
 		}else if(evt.getSource() == host){
 			if(host.isSelected()){
 				client.setSelected(false);
@@ -134,19 +135,20 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel7.setVisible(true);
 				thelabel8.setVisible(false);
 			}
+			ssm.connect();
 		}
 		if(evt.getSource()== thefield){
 			String strIP = thefield.getText();
-		}
-		if(evt.getSource()== butNEXT){
-			theframe.setContentPane(playpanel);
 			ssmc = new SuperSocketMaster(strIP, 1337, this);
 			ssmc.connect();
 		}
-		if(evt.getSource() == thefield2){
+		if(evt.getSource()== butNEXT){
+			theframe.setContentPane(playpanel);
+		}
+		if(evt.getSource()== thefield2){
 			ssm.sendText(thefield2.getText());
 			thefield2.setText("");
-		}else if(evt.getSource() == ssm){
+		}else if(evt.getSource()== ssm){
 			String strData;
 			strData = ssm.readText();
 			thechat.append(strData + "\n");
@@ -326,9 +328,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thechat.setEnabled(false);
 		
 		thescroll = new JScrollPane(thechat);
-	
+		
 		ssm = new SuperSocketMaster(1337, this);
-		ssm.connect();
+		
 
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
