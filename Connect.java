@@ -40,7 +40,15 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JLabel thelabel4; 
 	JLabel thelabel5; 
 	JLabel thelabel6;
+	JLabel thelabel7;
+	JLabel thelabel8;
 	SuperSocketMaster ssm;
+	SuperSocketMaster ssmc;
+	JTextField thefield;
+	JTextField thefield2;
+	JTextArea thechat;
+	JScrollPane thescroll;
+	String strIP;
 
 	// Methods
 	public void actionPerformed(ActionEvent evt){
@@ -106,15 +114,40 @@ public class Connect implements ActionListener, MouseMotionListener{
 		if(evt.getSource() == client){
 			if(client.isSelected()){
 				host.setSelected(false);
+				thefield.setVisible(true);
+				thelabel7.setVisible(true);
+				thelabel8.setVisible(false);
 			}else{
 				host.setSelected(true);
+				thefield.setVisible(false);
+				thelabel7.setVisible(false);
+				thelabel8.setVisible(true);
+				thelabel8.setText("IP: " +ssm.getMyAddress());
 			}
 		}else if(evt.getSource() == host){
 			if(host.isSelected()){
 				client.setSelected(false);
+				thefield.setVisible(false);
+				thelabel7.setVisible(false);
+				thelabel8.setVisible(true);
+				thelabel8.setText("IP: " +ssm.getMyAddress());
 			}else{
 				client.setSelected(true);
+				thefield.setVisible(true);
+				thelabel7.setVisible(true);
+				thelabel8.setVisible(false);
 			}
+		}
+		if(evt.getSource()== thefield){
+			String strIP = thefield.getText();
+		}
+		if(evt.getSource() == thefield2){
+			ssm.sendText(thefield2.getText());
+			thefield2.setText("");
+		}else if(evt.getSource() == ssm){
+			String strData;
+			strData = ssm.readText();
+			thechat.append(strData + "\n");
 		}
 		if(evt.getSource()== thetimer){
 			mainpanel.repaint();
@@ -163,7 +196,6 @@ public class Connect implements ActionListener, MouseMotionListener{
 		client.addActionListener(this);
 		client.setSize(100,100);
 		client.setLocation(550,100); 
-		client.setEnabled(true);
 		
 		host = new JRadioButton("Host");
 		host.addActionListener(this);
@@ -225,6 +257,14 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thelabel6 = new JLabel("");
 		thelabel6.setSize(1000,50);
 		thelabel6.setLocation(600,100);
+		
+		thelabel7 = new JLabel("Host's IP:");
+		thelabel7.setSize(100,50);
+		thelabel7.setLocation(550,165);
+		
+		thelabel8 = new JLabel("");
+		thelabel8.setSize(100,50);
+		thelabel8.setLocation(550,165);
 
 		butPLAY.setSize(100,50); 
 		butPLAY.setLocation(200,100);
@@ -267,6 +307,26 @@ public class Connect implements ActionListener, MouseMotionListener{
 		
 		butNEXT.setSize(100,50);
 		butNEXT.setLocation(1160,650);
+		
+		thefield = new JTextField();
+		thefield.setSize(200,50);
+		thefield.setLocation(550,200);
+
+		thefield2 = new JTextField();
+		thefield2.setSize(200,100);
+		thefield2.setLocation(25,500);
+		thefield2.addActionListener(this);
+		
+		thechat = new JTextArea();
+		thechat.setSize(200,500);
+		thechat.setLocation(25,100);
+		thechat.setEnabled(false);
+		
+		thescroll = new JScrollPane(thechat);
+	
+		ssm = new SuperSocketMaster(1337, this);
+		ssmc = new SuperSocketMaster(strIP, 1337, this);
+		ssmc.connect();
 
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
@@ -286,6 +346,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		netpanel.add(client);
 		netpanel.add(butBACK3);
 		netpanel.add(butNEXT);
+		netpanel.add(thefield);
+		netpanel.add(thelabel7);
+		netpanel.add(thelabel8);
 		
 		themepanel.add(thelabel6);
 		themepanel.add(butBACK2);
@@ -296,6 +359,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 		highpanel.add(butBACK4);
 		
 		playpanel.add(butBACK5);
+		playpanel.add(thefield2);
+		playpanel.add(thescroll);
 		
 		theframe.setContentPane(mainpanel);
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
