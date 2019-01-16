@@ -323,11 +323,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thefield2.addActionListener(this);
 		
 		thechat = new JTextArea();
-		thechat.setSize(200,500);
-		thechat.setLocation(25,100);
 		thechat.setEnabled(false);
 		
 		thescroll = new JScrollPane(thechat);
+		thescroll.setSize(200,400);
+		thescroll.setLocation(25,50);
 		
 		ssm = new SuperSocketMaster(1337, this);
 		
