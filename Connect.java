@@ -74,19 +74,25 @@ public class Connect implements ActionListener, MouseMotionListener{
 			buttheme1.setEnabled(false);
 			buttheme2.setEnabled(true);
 			buttheme3.setEnabled(true);
-			tools.pieces(1);
+			playpanel.blnclassic = true;
+			playpanel.blnspace = false;
+			playpanel.blnindustrial = false;
 		}
 		if(evt.getSource()== buttheme2){
 			buttheme2.setEnabled(false);
 			buttheme1.setEnabled(true);
 			buttheme3.setEnabled(true);
-			tools.pieces(2);
+			playpanel.blnspace = true;
+			playpanel.blnclassic = false;
+			playpanel.blnindustrial = false;
 		}
 		if(evt.getSource()== buttheme3){
 			buttheme3.setEnabled(false);
 			buttheme1.setEnabled(true);
 			buttheme2.setEnabled(true);
-			tools.pieces(3);
+			playpanel.blnindustrial = true;
+			playpanel.blnclassic = false;
+			playpanel.blnspace = false;
 			
 		}
 		if(evt.getSource()== butBACK){
@@ -121,7 +127,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel8.setVisible(true);
 				thelabel8.setText("IP: " +ssm.getMyAddress());
 			}
-			
+			ssm.disconnect();
 		}else if(evt.getSource() == host){
 			if(host.isSelected()){
 				client.setSelected(false);
@@ -136,11 +142,13 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel8.setVisible(false);
 			}
 			ssm.connect();
+			butNEXT.setEnabled(true);
 		}
 		if(evt.getSource()== thefield){
 			String strIP = thefield.getText();
 			ssmc = new SuperSocketMaster(strIP, 1337, this);
 			ssmc.connect();
+			butNEXT.setEnabled(true);
 		}
 		if(evt.getSource()== butNEXT){
 			theframe.setContentPane(playpanel);
@@ -154,6 +162,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 			String strData;
 			strData = ssm.readText();
 			thechat.append(strData + "\n");
+		}
+		else if(evt.getSource()== ssmc){
+			String strData;
 			strData = ssmc.readText();
 			thechat.append(strData + "\n");
 		}
@@ -315,6 +326,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		
 		butNEXT.setSize(100,50);
 		butNEXT.setLocation(1160,650);
+		butNEXT.setEnabled(false);
 		
 		thefield = new JTextField();
 		thefield.setSize(200,50);
