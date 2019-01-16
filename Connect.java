@@ -148,16 +148,12 @@ public class Connect implements ActionListener, MouseMotionListener{
 		if(evt.getSource()== thefield2){
 			ssm.sendText(thefield2.getText());
 			thefield2.setText("");
+			ssmc.sendText(thefield2.getText());
+			thefield2.setText("");
 		}else if(evt.getSource()== ssm){
 			String strData;
 			strData = ssm.readText();
 			thechat.append(strData + "\n");
-		}
-		if(evt.getSource()== thefield2){
-			ssmc.sendText(thefield2.getText());
-			thefield2.setText("");
-		}else if(evt.getSource()== ssmc){
-			String strData;
 			strData = ssmc.readText();
 			thechat.append(strData + "\n");
 		}
