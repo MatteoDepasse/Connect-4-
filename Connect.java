@@ -320,6 +320,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		
 		buttheme1.setSize(100,50);
 		buttheme1.setLocation(600,200);
+		buttheme1.setEnabled(false);
 		
 		buttheme2.setSize(100,50);
 		buttheme2.setLocation(600,300);

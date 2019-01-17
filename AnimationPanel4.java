@@ -41,7 +41,7 @@ public class AnimationPanel4 extends JPanel{
 			if(blnturn = true){
 				g.drawImage(industrialnut, intX, intY, null);
 			}else if(blnturn = false){
-				g.drawImage(spacestar, intX, intY, null);
+				g.drawImage(industrialscrew, intX, intY, null);
 			}
 		}
 		
