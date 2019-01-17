@@ -174,11 +174,13 @@ public class Connect implements ActionListener, MouseMotionListener{
 			highpanel.revalidate();
 			themepanel.revalidate();
 			playpanel.revalidate();
+			playpanel.repaint();
 		}
 	}
 	
 	public void mouseDragged(MouseEvent evt){
-		
+		playpanel.intX = evt.getX(); 
+		playpanel.intY = evt.getY(); 
 	}
 	public void mouseMoved(MouseEvent evt){
 		
@@ -202,6 +204,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		playpanel = new AnimationPanel4();
 		playpanel.setLayout(null);
 		playpanel.setPreferredSize(new Dimension(1280,720));
+		playpanel.addMouseMotionListener(this);
 		
 		highpanel = new AnimationPanel5();
 		highpanel.setLayout(null);
