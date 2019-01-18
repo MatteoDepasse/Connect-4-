@@ -65,6 +65,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 		}
 		if(evt.getSource()== butSCORE){
 			theframe.setContentPane(highpanel);
+			highpanel.intY = 50;
+			highpanel.intTop = 0; 
 		}
 		if(evt.getSource()== butTHEME){
 			theframe.setContentPane(themepanel);
