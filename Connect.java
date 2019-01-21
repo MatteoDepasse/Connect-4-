@@ -43,7 +43,6 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JLabel thelabel7;
 	JLabel thelabel8;
 	SuperSocketMaster ssm;
-	SuperSocketMaster ssmc;
 	JTextField thefield;
 	JTextField thefield2;
 	JTextArea thechat;
@@ -137,6 +136,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel7.setVisible(false);
 				thelabel8.setVisible(true);
 				thelabel8.setText("IP: " +ssm.getMyAddress());
+				System.out.println(ssm.getMyAddress());
 			}else{
 				client.setSelected(true);
 				thefield.setVisible(true);
@@ -148,8 +148,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 		}
 		if(evt.getSource()== thefield){
 			String strIP = thefield.getText();
-			ssmc = new SuperSocketMaster(strIP, 1337, this);
-			ssmc.connect();
+			ssm = new SuperSocketMaster(strIP, 1337, this);
+			ssm.connect();
 			butNEXT.setEnabled(true);
 		}
 		if(evt.getSource()== butNEXT){
@@ -158,16 +158,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		if(evt.getSource()== thefield2){
 			ssm.sendText(thefield2.getText());
 			thefield2.setText("");
-			ssmc.sendText(thefield2.getText());
-			thefield2.setText("");
 		}else if(evt.getSource()== ssm){
 			String strData;
 			strData = ssm.readText();
-			thechat.append(strData + "\n");
-		}
-		else if(evt.getSource()== ssmc){
-			String strData;
-			strData = ssmc.readText();
 			thechat.append(strData + "\n");
 		}
 		if(evt.getSource()== thetimer){
@@ -352,7 +345,6 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thescroll.setLocation(25,50);
 		
 		ssm = new SuperSocketMaster(1337, this);
-		
 
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
