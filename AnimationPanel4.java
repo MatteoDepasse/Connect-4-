@@ -19,11 +19,27 @@ public class AnimationPanel4 extends JPanel{
 	boolean blnspace = false;
 	boolean blnindustrial = false;
 	boolean blnturn = true;
+	String strP1 = "X";
+	String strP2 = "O";
+	String strBoard[][];
+	String strEmpty = ".";
+	int intColumn = 0; 
+	int intRow = 0;
 	
 	// Methods
 	public void paintComponent(Graphics g){
 		tools.plainboard(g);
 		tools.board(g);
+		
+		strBoard = new String[7][6];
+		
+		for(intColumn = 0; intColumn < 7; intColumn++){
+			for(intRow = 0; intRow < 6; intRow++){
+				strBoard[intColumn][intRow] = strEmpty;
+			}
+		}
+		
+		strP1 = tools.P1piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
 		
 		if(blnclassic = true){
 			if(blnturn = true){
