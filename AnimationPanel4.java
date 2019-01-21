@@ -18,13 +18,14 @@ public class AnimationPanel4 extends JPanel{
 	boolean blnclassic = true;
 	boolean blnspace = false;
 	boolean blnindustrial = false;
-	boolean blnturn = true;
+	boolean blnturn;
 	String strP1 = "X";
 	String strP2 = "O";
 	String strBoard[][];
 	String strEmpty = ".";
 	int intColumn = 0; 
 	int intRow = 0;
+	int intWin = 0;
 	
 	// Methods
 	public void paintComponent(Graphics g){
@@ -40,6 +41,7 @@ public class AnimationPanel4 extends JPanel{
 		}
 		
 		strP1 = tools.P1piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
+		strP2 = tools.P2piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
 		
 		if(blnclassic = true){
 			if(blnturn = true){

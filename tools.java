@@ -308,170 +308,170 @@ public class tools{
 			System.out.println("Unable to load");
 		}
 		
-		if(intX >= 560 || intX < 650 && strBoard[0][0].equals(strEmpty)){
+		if(intX >= 560 && intX < 650 && strBoard[0][0].equals(strEmpty)){
 			strBoard[0][0] = strP2;
 			g.drawImage(classicyellow, 570, 595, null);
-		}else if(intX >= 560 || intX < 650 && strBoard[0][1].equals(strEmpty)){
+		}else if(intX >= 560 && intX < 650 && strBoard[0][1].equals(strEmpty)){
 			strBoard[0][1] = strP2;
 			g.drawImage(classicyellow, 570, 500, null);
-		}else if(intX >= 560 || intX < 650 && strBoard[0][2].equals(strEmpty)){
+		}else if(intX >= 560 && intX < 650 && strBoard[0][2].equals(strEmpty)){
 			strBoard[0][2] = strP2;
 			g.drawImage(classicyellow, 570, 405, null);
-		}else if(intX >= 560 || intX < 650 && strBoard[0][3].equals(strEmpty)){
+		}else if(intX >= 560 && intX < 650 && strBoard[0][3].equals(strEmpty)){
 			strBoard[0][3] = strP2;
 			g.drawImage(classicyellow, 570, 310, null);
-		}else if(intX >= 560 || intX < 650 && strBoard[0][4].equals(strEmpty)){
+		}else if(intX >= 560 && intX < 650 && strBoard[0][4].equals(strEmpty)){
 			strBoard[0][4] = strP2;
 			g.drawImage(classicyellow, 570, 215, null);
-		}else if(intX >= 560 || intX < 650 && strBoard[0][5].equals(strEmpty)){
+		}else if(intX >= 560 && intX < 650 && strBoard[0][5].equals(strEmpty)){
 			strBoard[0][5] = strP2;
 			g.drawImage(classicyellow, 570, 120, null);
-		}else if(intX >= 560 || intX < 650 && (strBoard[0][5].equals(strP2)||strBoard[0][5].equals(strP1))){
-			while(intX >= 560 || intX < 650){
+		}else if(intX >= 560 && intX < 650 && (strBoard[0][5].equals(strP2)||strBoard[0][5].equals(strP1))){
+			while(intX >= 560 && intX < 650){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
-		if(intX > 660 || intX < 740 && strBoard[1][0].equals(strEmpty)){
+		if(intX > 660 && intX < 740 && strBoard[1][0].equals(strEmpty)){
 			strBoard[1][0] = strP2;
 			g.drawImage(classicyellow, 665, 595, null);
-		}else if(intX > 660 || intX < 740 && strBoard[1][1].equals(strEmpty)){
+		}else if(intX > 660 && intX < 740 && strBoard[1][1].equals(strEmpty)){
 			strBoard[1][1] = strP2;
 			g.drawImage(classicyellow, 665, 500, null);
-		}else if(intX > 660 || intX < 740 && strBoard[1][2].equals(strEmpty)){
+		}else if(intX > 660 && intX < 740 && strBoard[1][2].equals(strEmpty)){
 			strBoard[1][2] = strP2;
 			g.drawImage(classicyellow, 665, 405, null);
-		}else if(intX > 660 || intX < 740 && strBoard[1][3].equals(strEmpty)){
+		}else if(intX > 660 && intX < 740 && strBoard[1][3].equals(strEmpty)){
 			strBoard[1][3] = strP2;
 			g.drawImage(classicyellow, 665, 310, null);
-		}else if(intX > 660 || intX < 740 && strBoard[1][4].equals(strEmpty)){
+		}else if(intX > 660 && intX < 740 && strBoard[1][4].equals(strEmpty)){
 			strBoard[1][4] = strP2;
 			g.drawImage(classicyellow, 665, 215, null);
-		}else if(intX > 660 || intX < 740 && strBoard[1][5].equals(strEmpty)){
+		}else if(intX > 660 && intX < 740 && strBoard[1][5].equals(strEmpty)){
 			strBoard[1][5] = strP2;
 			g.drawImage(classicyellow, 665, 120, null);
-		}else if(intX > 660 || intX < 740 && (strBoard[1][5].equals(strP2)||strBoard[1][5].equals(strP1))){
-			while(intX > 660 || intX < 740){
+		}else if(intX > 660 && intX < 740 && (strBoard[1][5].equals(strP2)||strBoard[1][5].equals(strP1))){
+			while(intX > 660 && intX < 740){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
-		if(intX > 750 || intX < 840 && strBoard[2][0].equals(strEmpty)){
+		if(intX > 750 && intX < 840 && strBoard[2][0].equals(strEmpty)){
 			strBoard[2][0] = strP2;
 			g.drawImage(classicyellow, 760, 595, null);
-		}else if(intX > 750 || intX < 840 && strBoard[2][1].equals(strEmpty)){
+		}else if(intX > 750 && intX < 840 && strBoard[2][1].equals(strEmpty)){
 			strBoard[2][1] = strP2;
 			g.drawImage(classicyellow, 760, 500, null);
-		}else if(intX > 750 || intX < 840 && strBoard[2][2].equals(strEmpty)){
+		}else if(intX > 750 && intX < 840 && strBoard[2][2].equals(strEmpty)){
 			strBoard[2][2] = strP2;
 			g.drawImage(classicyellow, 760, 405, null);
-		}else if(intX > 750 || intX < 840 && strBoard[2][3].equals(strEmpty)){
+		}else if(intX > 750 && intX < 840 && strBoard[2][3].equals(strEmpty)){
 			strBoard[2][3] = strP2;
 			g.drawImage(classicyellow, 760, 310, null);
-		}else if(intX > 750 || intX < 840 && strBoard[2][4].equals(strEmpty)){
+		}else if(intX > 750 && intX < 840 && strBoard[2][4].equals(strEmpty)){
 			strBoard[2][4] = strP2;
 			g.drawImage(classicyellow, 760, 215, null);
-		}else if(intX > 750 || intX < 840 && strBoard[2][5].equals(strEmpty)){
+		}else if(intX > 750 && intX < 840 && strBoard[2][5].equals(strEmpty)){
 			strBoard[2][5] = strP2;
 			g.drawImage(classicyellow, 760, 120, null);
-		}else if(intX > 750 || intX < 840 && (strBoard[2][5].equals(strP2)||strBoard[2][5].equals(strP1))){
-			while(intX > 750 || intX < 840){
+		}else if(intX > 750 && intX < 840 && (strBoard[2][5].equals(strP2)||strBoard[2][5].equals(strP1))){
+			while(intX > 750 && intX < 840){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
-		if(intX > 850 || intX < 930 && strBoard[3][0].equals(strEmpty)){
+		if(intX > 850 && intX < 930 && strBoard[3][0].equals(strEmpty)){
 			strBoard[3][0] = strP2;
 			g.drawImage(classicyellow, 855, 595, null);
-		}else if(intX > 850 || intX < 930 && strBoard[3][1].equals(strEmpty)){
+		}else if(intX > 850 && intX < 930 && strBoard[3][1].equals(strEmpty)){
 			strBoard[3][1] = strP2;
 			g.drawImage(classicyellow, 855, 500, null);
-		}else if(intX > 850 || intX < 930 && strBoard[3][2].equals(strEmpty)){
+		}else if(intX > 850 && intX < 930 && strBoard[3][2].equals(strEmpty)){
 			strBoard[3][2] = strP2;
 			g.drawImage(classicyellow, 855, 405, null);
-		}else if(intX > 850 || intX < 930 && strBoard[3][3].equals(strEmpty)){
+		}else if(intX > 850 && intX < 930 && strBoard[3][3].equals(strEmpty)){
 			strBoard[3][3] = strP2;
 			g.drawImage(classicyellow, 855, 310, null);
-		}else if(intX > 850 || intX < 930 && strBoard[3][4].equals(strEmpty)){
+		}else if(intX > 850 && intX < 930 && strBoard[3][4].equals(strEmpty)){
 			strBoard[3][4] = strP2;
 			g.drawImage(classicyellow, 855, 215, null);
-		}else if(intX > 850 || intX < 930 && strBoard[3][5].equals(strEmpty)){
+		}else if(intX > 850 && intX < 930 && strBoard[3][5].equals(strEmpty)){
 			strBoard[3][5] = strP2;
 			g.drawImage(classicyellow, 855, 120, null);
-		}else if(intX > 850 || intX < 930 && (strBoard[3][5].equals(strP2)||strBoard[3][5].equals(strP1))){
-			while(intX > 850 || intX < 930){
+		}else if(intX > 850 && intX < 930 && (strBoard[3][5].equals(strP2)||strBoard[3][5].equals(strP1))){
+			while(intX > 850 && intX < 930){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
-		if(intX > 940 || intX < 1030 && strBoard[4][0].equals(strEmpty)){
+		if(intX > 940 && intX < 1030 && strBoard[4][0].equals(strEmpty)){
 			strBoard[4][0] = strP2;
 			g.drawImage(classicyellow, 950, 595, null);
-		}else if(intX > 940 || intX < 1030 && strBoard[4][1].equals(strEmpty)){
+		}else if(intX > 940 && intX < 1030 && strBoard[4][1].equals(strEmpty)){
 			strBoard[4][1] = strP2;
 			g.drawImage(classicyellow, 950, 500, null);
-		}else if(intX > 940 || intX < 1030 && strBoard[4][2].equals(strEmpty)){
+		}else if(intX > 940 && intX < 1030 && strBoard[4][2].equals(strEmpty)){
 			strBoard[4][2] = strP2;
 			g.drawImage(classicyellow, 950, 405, null);
-		}else if(intX > 940 || intX < 1030 && strBoard[4][3].equals(strEmpty)){
+		}else if(intX > 940 && intX < 1030 && strBoard[4][3].equals(strEmpty)){
 			strBoard[4][3] = strP2;
 			g.drawImage(classicyellow, 950, 310, null);
-		}else if(intX > 940 || intX < 1030 && strBoard[4][4].equals(strEmpty)){
+		}else if(intX > 940 && intX < 1030 && strBoard[4][4].equals(strEmpty)){
 			strBoard[4][4] = strP2;
 			g.drawImage(classicyellow, 950, 215, null);
-		}else if(intX > 940 || intX < 1030 && strBoard[4][5].equals(strEmpty)){
+		}else if(intX > 940 && intX < 1030 && strBoard[4][5].equals(strEmpty)){
 			strBoard[4][5] = strP2;
 			g.drawImage(classicyellow, 950, 120, null);
-		}else if(intX > 940 || intX < 1030 && (strBoard[4][5].equals(strP2)||strBoard[4][5].equals(strP1))){
-			while(intX > 940 || intX < 1030){
+		}else if(intX > 940 && intX < 1030 && (strBoard[4][5].equals(strP2)||strBoard[4][5].equals(strP1))){
+			while(intX > 940 && intX < 1030){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
-		if(intX > 1040 || intX < 1130 && strBoard[5][0].equals(strEmpty)){
+		if(intX > 1040 && intX < 1130 && strBoard[5][0].equals(strEmpty)){
 			strBoard[5][0] = strP2;
 			g.drawImage(classicyellow, 1045, 595, null);
-		}else if(intX > 1040 || intX < 1130 && strBoard[5][1].equals(strEmpty)){
+		}else if(intX > 1040 && intX < 1130 && strBoard[5][1].equals(strEmpty)){
 			strBoard[5][1] = strP2;
 			g.drawImage(classicyellow, 1045, 500, null);
-		}else if(intX > 1040 || intX < 1130 && strBoard[5][2].equals(strEmpty)){
+		}else if(intX > 1040 && intX < 1130 && strBoard[5][2].equals(strEmpty)){
 			strBoard[5][2] = strP2;
 			g.drawImage(classicyellow, 1045, 405, null);
-		}else if(intX > 1040 || intX < 1130 && strBoard[5][3].equals(strEmpty)){
+		}else if(intX > 1040 && intX < 1130 && strBoard[5][3].equals(strEmpty)){
 			strBoard[5][3] = strP2;
 			g.drawImage(classicyellow, 1045, 310, null);
-		}else if(intX > 1040 || intX < 1130 && strBoard[5][4].equals(strEmpty)){
+		}else if(intX > 1040 && intX < 1130 && strBoard[5][4].equals(strEmpty)){
 			strBoard[5][4] = strP2;
 			g.drawImage(classicyellow, 1045, 215, null);
-		}else if(intX > 1040 || intX < 1130 && strBoard[5][5].equals(strEmpty)){
+		}else if(intX > 1040 && intX < 1130 && strBoard[5][5].equals(strEmpty)){
 			strBoard[5][5] = strP2;
 			g.drawImage(classicyellow, 1045, 120, null);
-		}else if(intX > 1040 || intX < 1130 && (strBoard[5][5].equals(strP2)||strBoard[5][5].equals(strP1))){
-			while(intX > 1040 || intX < 1130){
+		}else if(intX > 1040 && intX < 1130 && (strBoard[5][5].equals(strP2)||strBoard[5][5].equals(strP1))){
+			while(intX > 1040 && intX < 1130){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
-		if(intX > 1140 || intX < 1220 && strBoard[6][0].equals(strEmpty)){
+		if(intX > 1140 && intX < 1220 && strBoard[6][0].equals(strEmpty)){
 			strBoard[6][0] = strP2;
 			g.drawImage(classicyellow, 1140, 595, null);
-		}else if(intX > 1140 || intX < 1220 && strBoard[6][1].equals(strEmpty)){
+		}else if(intX > 1140 && intX < 1220 && strBoard[6][1].equals(strEmpty)){
 			strBoard[6][1] = strP2;
 			g.drawImage(classicyellow, 1140, 500, null);
-		}else if(intX > 1140 || intX < 1220 && strBoard[6][2].equals(strEmpty)){
+		}else if(intX > 1140 && intX < 1220 && strBoard[6][2].equals(strEmpty)){
 			strBoard[6][2] = strP2;
 			g.drawImage(classicyellow, 1140, 405, null);
-		}else if(intX > 1140 || intX < 1220 && strBoard[6][3].equals(strEmpty)){
+		}else if(intX > 1140 && intX < 1220 && strBoard[6][3].equals(strEmpty)){
 			strBoard[6][3] = strP2;
 			g.drawImage(classicyellow, 1140, 310, null);
-		}else if(intX > 1140 || intX < 1220 && strBoard[6][4].equals(strEmpty)){
+		}else if(intX > 1140 && intX < 1220 && strBoard[6][4].equals(strEmpty)){
 			strBoard[6][4] = strP2;
 			g.drawImage(classicyellow, 1140, 215, null);
-		}else if(intX > 1140 || intX < 1220 && strBoard[6][5].equals(strEmpty)){
+		}else if(intX > 1140 && intX < 1220 && strBoard[6][5].equals(strEmpty)){
 			strBoard[6][5] = strP2;
 			g.drawImage(classicyellow, 1140, 120, null);
-		}else if(intX > 1140 || intX < 1220 && (strBoard[6][5].equals(strP2)||strBoard[6][5].equals(strP1))){
-			while(intX > 1140 || intX < 1220){
+		}else if(intX > 1140 && intX < 1220 && (strBoard[6][5].equals(strP2)||strBoard[6][5].equals(strP1))){
+			while(intX > 1140 && intX < 1220){
 				g.setColor(Color.BLACK);
 				g.drawString("Column Full!", 350, 600);
 			}

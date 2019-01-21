@@ -31,6 +31,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 	JButton buttheme2;
 	JButton buttheme3;
 	JButton butNEXT;
+	JButton butturn;
 	JRadioButton client;
 	JRadioButton host;
 	Timer thetimer; 
@@ -121,13 +122,16 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thefield.setVisible(true);
 				thelabel7.setVisible(true);
 				thelabel8.setVisible(false);
+				playpanel.blnturn = false;
 			}else{
 				host.setSelected(true);
 				thefield.setVisible(false);
 				thelabel7.setVisible(false);
 				thelabel8.setVisible(true);
 				thelabel8.setText("IP: " +ssm.getMyAddress());
+				playpanel.blnturn = true;
 			}
+			playpanel.blnturn = false;
 			ssm.disconnect();
 		}else if(evt.getSource() == host){
 			if(host.isSelected()){
@@ -137,11 +141,13 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel8.setVisible(true);
 				thelabel8.setText("IP: " +ssm.getMyAddress());
 				System.out.println(ssm.getMyAddress());
+				playpanel.blnturn = true;
 			}else{
 				client.setSelected(true);
 				thefield.setVisible(true);
 				thelabel7.setVisible(true);
 				thelabel8.setVisible(false);
+				playpanel.blnturn = false;
 			}
 			ssm.connect();
 			butNEXT.setEnabled(true);
@@ -154,6 +160,12 @@ public class Connect implements ActionListener, MouseMotionListener{
 		}
 		if(evt.getSource()== butNEXT){
 			theframe.setContentPane(playpanel);
+		}
+		if(evt.getSource()== butturn){
+			playpanel.blnturn = false;
+			String strPiece;
+			strPiece = playpanel.strP1;
+			ssm.sendText(strPiece);
 		}
 		if(evt.getSource()== thefield2){
 			ssm.sendText(thefield2.getText());
@@ -233,6 +245,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		buttheme2 = new JButton("SPACE");
 		buttheme3 = new JButton("INDUSTRIAL");
 		butNEXT = new JButton("NEXT");
+		butturn = new JButton("End Turn");
 		butPLAY.addActionListener(this);
 		butSCORE.addActionListener(this);
 		butTHEME.addActionListener(this);
@@ -247,6 +260,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		buttheme2.addActionListener(this);
 		buttheme3.addActionListener(this);
 		butNEXT.addActionListener(this);
+		butturn.addActionListener(this);
 		
 		thetimer = new Timer(1000/60, this);
 		thetimer.start();
@@ -327,6 +341,9 @@ public class Connect implements ActionListener, MouseMotionListener{
 		butNEXT.setLocation(1160,650);
 		butNEXT.setEnabled(false);
 		
+		butturn.setSize(100,50);
+		butturn.setLocation(340,650);
+		
 		thefield = new JTextField();
 		thefield.setSize(200,50);
 		thefield.setLocation(550,200);
@@ -379,6 +396,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		playpanel.add(butBACK5);
 		playpanel.add(thefield2);
 		playpanel.add(thescroll);
+		playpanel.add(butturn);
 		
 		theframe.setContentPane(mainpanel);
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
