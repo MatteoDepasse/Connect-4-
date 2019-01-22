@@ -6,6 +6,7 @@ import javax.imageio.*;
 
 public class tools{
 	public static void board(Graphics g){
+		// Drawing the board with all blank circles
 		g.setColor(Color.BLUE);
 		g.fillRect(550, 100, 685, 584);	
 		g.setColor(Color.WHITE);
@@ -54,18 +55,21 @@ public class tools{
 	}
 	
 	public static void plainboard(Graphics g){
+		// Drawing a white background
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 1280, 720);
 	}
 	
 	public static String[][] pieces(int intTheme){
 		
+		// Properties for FileIO
 		boolean blnFileFail = false;
 		FileReader themefile = null;
 		BufferedReader thefiledata = null;
 		String strPiece [][];
 		strPiece = new String[3][6];
 		
+		// Exception if themes.txt doesnt load
 		try{
 			themefile = new FileReader("themes.txt");
 		}catch(FileNotFoundException e){
@@ -100,6 +104,8 @@ public class tools{
 	}
 	
 	public static String P1piece(Graphics g, int intX, String strBoard[][],String strP1, String strP2, String strEmpty, BufferedImage classicred){
+		
+		// Images for drawing the pieces on the board
 	//	BufferedImage classicred;
 		BufferedImage classicyellow;
 		BufferedImage industrialscrew;
@@ -107,6 +113,7 @@ public class tools{
 		BufferedImage spacemoon;
 		BufferedImage spacestar;
 		
+		// Exception if it cannot load image
 		try{
 			classicred = ImageIO.read(new File("classicred.png"));
 			classicyellow = ImageIO.read(new File("classicyellow.png"));
@@ -118,6 +125,7 @@ public class tools{
 			System.out.println("Unable to load");
 		}
 		
+		// If user drops piece in column 1 
 		if(intX >= 560 && intX < 650 && strBoard[0][0].equals(strEmpty)){
 			strBoard[0][0] = strP1;
 			g.drawImage(classicred, 570, 595, null);
@@ -142,6 +150,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 2
 		if(intX > 660 && intX < 740 && strBoard[1][0].equals(strEmpty)){
 			strBoard[1][0] = strP1;
 			g.drawImage(classicred, 665, 595, null);
@@ -166,6 +175,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 31
 		if(intX > 750 && intX < 840 && strBoard[2][0].equals(strEmpty)){
 			strBoard[2][0] = strP1;
 			g.drawImage(classicred, 760, 595, null);
@@ -190,6 +200,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 4
 		if(intX > 850 && intX < 930 && strBoard[3][0].equals(strEmpty)){
 			strBoard[3][0] = strP1;
 			g.drawImage(classicred, 855, 595, null);
@@ -214,6 +225,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 5
 		if(intX > 940 && intX < 1030 && strBoard[4][0].equals(strEmpty)){
 			strBoard[4][0] = strP1;
 			g.drawImage(classicred, 950, 595, null);
@@ -238,6 +250,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 6
 		if(intX > 1040 && intX < 1130 && strBoard[5][0].equals(strEmpty)){
 			strBoard[5][0] = strP1;
 			g.drawImage(classicred, 1045, 595, null);
@@ -262,6 +275,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 7
 		if(intX > 1140 && intX < 1220 && strBoard[6][0].equals(strEmpty)){
 			strBoard[6][0] = strP1;
 			g.drawImage(classicred, 1140, 595, null);
@@ -290,6 +304,8 @@ public class tools{
 	}
 	
 	public static String P2piece(Graphics g, int intX, String strBoard[][],String strP1, String strP2, String strEmpty, BufferedImage classicyellow){
+		
+		// Properties for images
 		BufferedImage classicred;
 	//	BufferedImage classicyellow;
 		BufferedImage industrialscrew;
@@ -297,6 +313,7 @@ public class tools{
 		BufferedImage spacemoon;
 		BufferedImage spacestar;
 		
+		// Exception if image cant be loaded
 		try{
 			classicred = ImageIO.read(new File("classicred.png"));
 			classicyellow = ImageIO.read(new File("classicyellow.png"));
@@ -308,6 +325,7 @@ public class tools{
 			System.out.println("Unable to load");
 		}
 		
+		// If user drops piece in column 1
 		if(intX >= 560 && intX < 650 && strBoard[0][0].equals(strEmpty)){
 			strBoard[0][0] = strP2;
 			g.drawImage(classicyellow, 570, 595, null);
@@ -332,6 +350,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 2
 		if(intX > 660 && intX < 740 && strBoard[1][0].equals(strEmpty)){
 			strBoard[1][0] = strP2;
 			g.drawImage(classicyellow, 665, 595, null);
@@ -356,6 +375,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 3
 		if(intX > 750 && intX < 840 && strBoard[2][0].equals(strEmpty)){
 			strBoard[2][0] = strP2;
 			g.drawImage(classicyellow, 760, 595, null);
@@ -380,6 +400,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 4
 		if(intX > 850 && intX < 930 && strBoard[3][0].equals(strEmpty)){
 			strBoard[3][0] = strP2;
 			g.drawImage(classicyellow, 855, 595, null);
@@ -404,6 +425,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 5
 		if(intX > 940 && intX < 1030 && strBoard[4][0].equals(strEmpty)){
 			strBoard[4][0] = strP2;
 			g.drawImage(classicyellow, 950, 595, null);
@@ -428,6 +450,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 6
 		if(intX > 1040 && intX < 1130 && strBoard[5][0].equals(strEmpty)){
 			strBoard[5][0] = strP2;
 			g.drawImage(classicyellow, 1045, 595, null);
@@ -452,6 +475,7 @@ public class tools{
 				g.drawString("Column Full!", 350, 600);
 			}
 		}
+		// If user drops piece in column 7
 		if(intX > 1140 && intX < 1220 && strBoard[6][0].equals(strEmpty)){
 			strBoard[6][0] = strP2;
 			g.drawImage(classicyellow, 1140, 595, null);
@@ -482,6 +506,7 @@ public class tools{
 		int intRow = 0;
 		int intColumn = 0;
 		
+		// Win Condition Vertical
 		for(intRow = 0; intRow < 6; intRow++){
 			for(intColumn = 0; intColumn < 4; intColumn++){
 				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn+1][intRow].equals(strP1) && strBoard[intColumn+2][intRow].equals(strP1) && strBoard[intColumn+3][intRow].equals(strP1)){
@@ -490,6 +515,7 @@ public class tools{
 				}
 			}
 		}
+		// Win Condition Horizontal
 		for(intColumn = 0; intColumn < 7; intColumn++){
 			for(intRow = 0; intRow < 3; intRow++){
 				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn][intRow+1].equals(strP1) && strBoard[intColumn][intRow+2].equals(strP1) && strBoard[intColumn][intRow+3].equals(strP1)){
@@ -498,6 +524,7 @@ public class tools{
 				}
 			}
 		}
+		// Win Condition Diagonal
 		for(intColumn = 3; intColumn < 7; intColumn++){
 			for(intRow = 0; intRow < 2; intRow++){
 				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn-1][intRow+1].equals(strP1) && strBoard[intColumn-2][intRow+2].equals(strP1) && strBoard[intColumn-3][intRow+3].equals(strP1)){
@@ -506,6 +533,7 @@ public class tools{
 				}
 			}
 		}
+		// Win Condition Diagonal
 		for(intColumn = 3; intColumn < 7; intColumn++){
 			for(intRow = 3; intRow < 6; intRow++){
 				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn-1][intRow-1].equals(strP1) && strBoard[intColumn-2][intRow-2].equals(strP1) && strBoard[intColumn-3][intRow-3].equals(strP1)){
@@ -520,6 +548,7 @@ public class tools{
 		int intRow = 0;
 		int intColumn = 0;
     
+		// Win Condition Vertical
 		for(intRow = 0; intRow < 6; intRow++){
 			for(intColumn = 0; intColumn < 4; intColumn++){
 				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn+1][intRow].equals(strP2) && strBoard[intColumn+2][intRow].equals(strP2) && strBoard[intColumn+3][intRow].equals(strP2)){
@@ -527,6 +556,7 @@ public class tools{
 				}
 			}
 		}
+		// Win Condition Horizontal
 		for(intColumn = 0; intColumn < 7; intColumn++){
 			for(intRow = 0; intRow < 3; intRow++){
 				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn][intRow+1].equals(strP2) && strBoard[intColumn][intRow+2].equals(strP2) && strBoard[intColumn][intRow+3].equals(strP2)){
@@ -534,6 +564,7 @@ public class tools{
 				}
 			}
 		}  
+		// Win Condition Diagonal
 		for(intColumn = 3; intColumn < 7; intColumn++){
 			for(intRow = 0; intRow < 3; intRow++){
 				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn-1][intRow+1].equals(strP2) && strBoard[intColumn-2][intRow+2].equals(strP2) && strBoard[intColumn-3][intRow+3].equals(strP2)){
@@ -541,6 +572,7 @@ public class tools{
 				}
 			}
 		}
+		// Win Condition Diagonal
 		for(intColumn = 3; intColumn < 7; intColumn++){
 			for(intRow = 3; intRow < 6; intRow++){
 				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn-1][intRow-1].equals(strP2) && strBoard[intColumn-2][intRow-2].equals(strP2) && strBoard[intColumn-3][intRow-3].equals(strP2)){
