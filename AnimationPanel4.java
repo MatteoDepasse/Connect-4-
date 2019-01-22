@@ -15,6 +15,9 @@ public class AnimationPanel4 extends JPanel{
 	BufferedImage spacestar;
 	int intX = 350;
 	int intY = 550;
+	int intP1 = 1;
+	int intP2 = 2;
+	int intTurnNum = 1;
 	boolean blnclassic = true;
 	boolean blnspace = false;
 	boolean blnindustrial = false;
