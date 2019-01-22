@@ -7,7 +7,7 @@ import java.awt.event.*;
 // Made by Matteo and Kevin 
 
 
-public class Connect implements ActionListener, MouseMotionListener{
+public class Connect implements ActionListener, MouseMotionListener, MouseListener{
 	
 	// Properties
 	JFrame theframe;
@@ -133,12 +133,14 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel7.setVisible(true);
 				thelabel8.setVisible(false);
 				playpanel.blnturn = false;
+				playpanel.intTurnNum = 2;
+				
 			}else{
 				host.setSelected(true);
 				thefield.setVisible(false);
 				thelabel7.setVisible(false);
 				thelabel8.setVisible(true);
-		                      		thelabel8.setText("IP: " +ssm.getMyAddress());
+		        thelabel8.setText("IP: " +ssm.getMyAddress());
 				playpanel.blnturn = true;
 			}
 			playpanel.blnturn = false;
@@ -152,6 +154,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thelabel8.setText("IP: " +ssm.getMyAddress());
 				System.out.println(ssm.getMyAddress());
 				playpanel.blnturn = true;
+				playpanel.intTurnNum = 1;
+				if(evt.getSource()== butturn){
+					playpanel.intTurnNum = playpanel.intTurnNum + 1;
+					System.out.println(playpanel.intTurnNum);
+				}
 			}else{
 				client.setSelected(true);
 				thefield.setVisible(true);
@@ -174,11 +181,24 @@ public class Connect implements ActionListener, MouseMotionListener{
 			theframe.setContentPane(playpanel);
 		}
 		// Ends user turns
-		if(evt.getSource()== butturn){
-			playpanel.blnturn = false;
-			String strPiece;
-			strPiece = playpanel.strP1;
-			ssm.sendText(strPiece);
+		if(evt.getSource()== butturn && client.isSelected()){
+			String strTurnNum;
+			playpanel.intTurnNum = playpanel.intTurnNum - 1;
+			System.out.println(playpanel.intTurnNum);
+			strTurnNum = Integer.toString(playpanel.intTurnNum);
+			ssm.sendText(strTurnNum);
+			strTurnNum = ssm.readText();
+			playpanel.intTurnNum = Integer.parseInt(strTurnNum);
+			System.out.println("Recieved" +playpanel.intTurnNum);
+		}else if(evt.getSource()== butturn && host.isSelected()){
+			String strTurnNum;
+			playpanel.intTurnNum = playpanel.intTurnNum + 1;
+			System.out.println(playpanel.intTurnNum);
+			strTurnNum = Integer.toString(playpanel.intTurnNum);
+			ssm.sendText(strTurnNum);
+			strTurnNum = ssm.readText();
+			playpanel.intTurnNum = Integer.parseInt(strTurnNum);
+			System.out.println("Recieved" +playpanel.intTurnNum);
 		}
 		// Chat data being sent back and forth
 		if(evt.getSource()== thefield2){
@@ -205,6 +225,21 @@ public class Connect implements ActionListener, MouseMotionListener{
 		playpanel.intY = evt.getY(); 
 	}
 	public void mouseMoved(MouseEvent evt){
+		
+	}
+	public void mouseClicked(MouseEvent evt){
+		
+	}
+	public void mouseEntered(MouseEvent evt){
+		
+	}
+	public void mouseExited(MouseEvent evt){
+		
+	}
+	public void mousePressed(MouseEvent evt){
+		
+	}
+	public void mouseReleased(MouseEvent evt){
 		
 	} 
 	
@@ -429,6 +464,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		theframe.pack();
 		theframe.setVisible(true);	
+		theframe.setResizable(false);
 		
 	}
 	

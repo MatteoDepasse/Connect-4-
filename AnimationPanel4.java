@@ -44,14 +44,16 @@ public class AnimationPanel4 extends JPanel{
 			}
 		}
 		
+		if(intTurnNum == 1){
 	//	for(intCount = 0; intWin == 0; intCount++){
 			strP1 = tools.P1piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
 			intWin = tools.P1win(intWin, strP1, strP2, strEmpty, strBoard);
-			
+		}else if(intTurnNum == 2){
 			if(intWin != 1){
-				strP2 = tools.P2piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
+				strP2 = tools.P2piece(g, intX, strBoard, strP1, strP2, strEmpty, classicyellow);
 				intWin = tools.P2win(intWin, strP1, strP2, strEmpty, strBoard);
 			}
+		}
 	//	}
 		
 		if(intWin == 1){
