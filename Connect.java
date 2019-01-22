@@ -60,18 +60,22 @@ public class Connect implements ActionListener, MouseMotionListener{
 			thelabel4.setText("Drag and drop your pieces to drop them down a column");
 			thelabel5.setText("Line 4 pieces of your colour to win the game!!");
 		}
+		// Play button hit the panel with networking will appear
 		if(evt.getSource()== butPLAY){
 			theframe.setContentPane(netpanel);
 		}
+		// Highscore button hit will redirect to highscore panel
 		if(evt.getSource()== butSCORE){
 			theframe.setContentPane(highpanel);
 			highpanel.intY = 50;
 			highpanel.intTop = 0; 
 		}
+		// Themes button hit will show theme selection
 		if(evt.getSource()== butTHEME){
 			theframe.setContentPane(themepanel);
 			thelabel6.setText("Select a Theme");
 		}
+		// Selecting classic theme
 		if(evt.getSource()== buttheme1){
 			buttheme1.setEnabled(false);
 			buttheme2.setEnabled(true);
@@ -80,6 +84,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 			playpanel.blnspace = false;
 			playpanel.blnindustrial = false;
 		}
+		// Selecting space theme
 		if(evt.getSource()== buttheme2){
 			buttheme2.setEnabled(false);
 			buttheme1.setEnabled(true);
@@ -88,6 +93,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 			playpanel.blnclassic = false;
 			playpanel.blnindustrial = false;
 		}
+		// Selecting industrial theme
 		if(evt.getSource()== buttheme3){
 			buttheme3.setEnabled(false);
 			buttheme1.setEnabled(true);
@@ -95,8 +101,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 			playpanel.blnindustrial = true;
 			playpanel.blnclassic = false;
 			playpanel.blnspace = false;
-			
 		}
+		// Going back to the previous screen with all back buttons
 		if(evt.getSource()== butBACK){
 			theframe.setContentPane(mainpanel);
 		}
@@ -113,9 +119,13 @@ public class Connect implements ActionListener, MouseMotionListener{
 			theframe.setContentPane(netpanel);
 			System.out.println("test");
 		}
+		
+		// Selecting exit will close the game
 		if(evt.getSource()== butEXIT){
 			theframe.dispatchEvent(new WindowEvent(theframe, WindowEvent.WINDOW_CLOSING));
 		}
+		// Radio buttons for client and host selection 
+		// If one is true the other is false
 		if(evt.getSource() == client){
 			if(client.isSelected()){
 				host.setSelected(false);
@@ -128,7 +138,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 				thefield.setVisible(false);
 				thelabel7.setVisible(false);
 				thelabel8.setVisible(true);
-				thelabel8.setText("IP: " +ssm.getMyAddress());
+		                      		thelabel8.setText("IP: " +ssm.getMyAddress());
 				playpanel.blnturn = true;
 			}
 			playpanel.blnturn = false;
@@ -152,21 +162,25 @@ public class Connect implements ActionListener, MouseMotionListener{
 			ssm.connect();
 			butNEXT.setEnabled(true);
 		}
+		// Gets the ip from the field to connect to the server
 		if(evt.getSource()== thefield){
 			String strIP = thefield.getText();
 			ssm = new SuperSocketMaster(strIP, 1337, this);
 			ssm.connect();
 			butNEXT.setEnabled(true);
 		}
+		// Moves user from the network to play panel
 		if(evt.getSource()== butNEXT){
 			theframe.setContentPane(playpanel);
 		}
+		// Ends user turns
 		if(evt.getSource()== butturn){
 			playpanel.blnturn = false;
 			String strPiece;
 			strPiece = playpanel.strP1;
 			ssm.sendText(strPiece);
 		}
+		// Chat data being sent back and forth
 		if(evt.getSource()== thefield2){
 			ssm.sendText(thefield2.getText());
 			thefield2.setText("");
@@ -175,6 +189,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 			strData = ssm.readText();
 			thechat.append(strData + "\n");
 		}
+		// Timer for all panels to refresh 60 times in a second
 		if(evt.getSource()== thetimer){
 			mainpanel.repaint();
 			netpanel.revalidate();
@@ -184,7 +199,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 			playpanel.repaint();
 		}
 	}
-	
+	// Dragging the piece over the column to drop the piece
 	public void mouseDragged(MouseEvent evt){
 		playpanel.intX = evt.getX(); 
 		playpanel.intY = evt.getY(); 
@@ -196,6 +211,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 	// Constructor
 	public Connect(){
 		theframe = new JFrame("Connect 4");
+		
+		// Initializing all panels 
 		mainpanel = new AnimationPanel();
 		mainpanel.setLayout(null);
 		mainpanel.setPreferredSize(new Dimension(1280,720));
@@ -221,6 +238,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		themepanel.setLayout(null);
 		themepanel.setPreferredSize(new Dimension(1280,720));
 		
+		// Initializing Radio Buttons
 		client = new JRadioButton("Client");
 		client.addActionListener(this);
 		client.setSize(100,100);
@@ -231,6 +249,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		host.setSize(100,100);
 		host.setLocation(650,100); 
 		
+		// Initializing Buttons and adding action listener
 		butPLAY = new JButton("PLAY");
 		butSCORE = new JButton("HIGH SCORE");
 		butTHEME = new JButton("THEMES");
@@ -262,9 +281,11 @@ public class Connect implements ActionListener, MouseMotionListener{
 		butNEXT.addActionListener(this);
 		butturn.addActionListener(this);
 		
+		// Initializing Timer
 		thetimer = new Timer(1000/60, this);
 		thetimer.start();
 		 
+		// Initializing All labels 
 		thelabel = new JLabel("");
 		thelabel.setSize(1000,50);
 		thelabel.setLocation(100,0);
@@ -296,7 +317,8 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thelabel8 = new JLabel("");
 		thelabel8.setSize(100,50);
 		thelabel8.setLocation(550,165);
-
+		
+		// Setting Size and location of all buttons
 		butPLAY.setSize(100,50); 
 		butPLAY.setLocation(200,100);
 		
@@ -344,6 +366,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		butturn.setSize(100,50);
 		butturn.setLocation(340,650);
 		
+		// Initializing Fields of text
 		thefield = new JTextField();
 		thefield.setSize(200,50);
 		thefield.setLocation(550,200);
@@ -357,12 +380,15 @@ public class Connect implements ActionListener, MouseMotionListener{
 		thechat = new JTextArea();
 		thechat.setEnabled(false);
 		
+		// Initializing scroll
 		thescroll = new JScrollPane(thechat);
 		thescroll.setSize(200,400);
 		thescroll.setLocation(25,50);
 		
+		// Initializing SuperSocketMaster for networking
 		ssm = new SuperSocketMaster(1337, this);
 
+		// Adding all JComponents to each respective panel
 		mainpanel.add(butPLAY);
 		mainpanel.add(butSCORE);
 		mainpanel.add(butTHEME);
@@ -398,6 +424,7 @@ public class Connect implements ActionListener, MouseMotionListener{
 		playpanel.add(thescroll);
 		playpanel.add(butturn);
 		
+		// Setting the frame properties
 		theframe.setContentPane(mainpanel);
 		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		theframe.pack();
