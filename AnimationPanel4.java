@@ -26,6 +26,7 @@ public class AnimationPanel4 extends JPanel{
 	int intColumn = 0; 
 	int intRow = 0;
 	int intWin = 0;
+	int intCount = 0;
 	
 	// Methods
 	public void paintComponent(Graphics g){
@@ -40,8 +41,22 @@ public class AnimationPanel4 extends JPanel{
 			}
 		}
 		
-		strP1 = tools.P1piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
-		strP2 = tools.P2piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
+	//	for(intCount = 0; intWin == 0; intCount++){
+			strP1 = tools.P1piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
+			intWin = tools.P1win(intWin, strP1, strP2, strEmpty, strBoard);
+			
+			if(intWin != 1){
+				strP2 = tools.P2piece(g, intX, strBoard, strP1, strP2, strEmpty, classicred);
+				intWin = tools.P2win(intWin, strP1, strP2, strEmpty, strBoard);
+			}
+	//	}
+		
+		if(intWin == 1){
+			g.drawString("You Win!", 550, 40);
+		}
+		if(intWin == 2){
+			g.drawString("You Win!", 550, 40);
+		}
 		
 		if(blnclassic = true){
 			if(blnturn = true){

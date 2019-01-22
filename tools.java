@@ -478,4 +478,92 @@ public class tools{
 		}
 		return strP2;
 	}
+	public static int P1win(int intWin, String strP1, String strP2, String strEmpty, String strBoard[][]){
+		int intRow = 0;
+		int intColumn = 0;
+		
+		for(intRow = 0; intRow < 6; intRow++){
+			for(intColumn = 0; intColumn < 4; intColumn++){
+				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn+1][intRow].equals(strP1) && strBoard[intColumn+2][intRow].equals(strP1) && strBoard[intColumn+3][intRow].equals(strP1)){
+					intWin = 1;
+					break;
+				}
+			}
+		}
+		for(intColumn = 0; intColumn < 7; intColumn++){
+			for(intRow = 0; intRow < 3; intRow++){
+				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn][intRow+1].equals(strP1) && strBoard[intColumn][intRow+2].equals(strP1) && strBoard[intColumn][intRow+3].equals(strP1)){
+					intWin = 1;
+					continue;
+				}
+			}
+		}
+		for(intColumn = 3; intColumn < 7; intColumn++){
+			for(intRow = 0; intRow < 2; intRow++){
+				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn-1][intRow+1].equals(strP1) && strBoard[intColumn-2][intRow+2].equals(strP1) && strBoard[intColumn-3][intRow+3].equals(strP1)){
+					intWin = 1;
+					continue;
+				}
+			}
+		}
+		for(intColumn = 3; intColumn < 7; intColumn++){
+			for(intRow = 3; intRow < 6; intRow++){
+				if(strBoard[intColumn][intRow].equals(strP1) && strBoard[intColumn-1][intRow-1].equals(strP1) && strBoard[intColumn-2][intRow-2].equals(strP1) && strBoard[intColumn-3][intRow-3].equals(strP1)){
+					intWin = 1;
+				}
+			}
+		}
+		return intWin;
+	}
+	
+	public static int P2win(int intWin, String strP1, String strP2, String strEmpty, String strBoard[][]){
+		int intRow = 0;
+		int intColumn = 0;
+    
+		for(intRow = 0; intRow < 6; intRow++){
+			for(intColumn = 0; intColumn < 4; intColumn++){
+				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn+1][intRow].equals(strP2) && strBoard[intColumn+2][intRow].equals(strP2) && strBoard[intColumn+3][intRow].equals(strP2)){
+					intWin = 2;
+				}
+			}
+		}
+		for(intColumn = 0; intColumn < 7; intColumn++){
+			for(intRow = 0; intRow < 3; intRow++){
+				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn][intRow+1].equals(strP2) && strBoard[intColumn][intRow+2].equals(strP2) && strBoard[intColumn][intRow+3].equals(strP2)){
+					intWin = 2;
+				}
+			}
+		}  
+		for(intColumn = 3; intColumn < 7; intColumn++){
+			for(intRow = 0; intRow < 3; intRow++){
+				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn-1][intRow+1].equals(strP2) && strBoard[intColumn-2][intRow+2].equals(strP2) && strBoard[intColumn-3][intRow+3].equals(strP2)){
+					intWin = 2;
+				}
+			}
+		}
+		for(intColumn = 3; intColumn < 7; intColumn++){
+			for(intRow = 3; intRow < 6; intRow++){
+				if(strBoard[intColumn][intRow].equals(strP2) && strBoard[intColumn-1][intRow-1].equals(strP2) && strBoard[intColumn-2][intRow-2].equals(strP2) && strBoard[intColumn-3][intRow-3].equals(strP2)){
+					intWin = 2;
+				}
+			}
+		}
+		return intWin;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
